@@ -58,6 +58,6 @@ public class HelloForm {
 
 	public void setTotalAmt(String totalAmt) {
 		this.totalAmt = totalAmt;
-	}
+	} 
 
 }
