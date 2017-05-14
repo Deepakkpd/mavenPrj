@@ -74,7 +74,7 @@ public class AarestuDataAccessor {
 	public List<EmailVO> fetchEmailID(String email) {
 		List<Object> itemList = new ArrayList<Object>();
 		List<EmailVO> helloVOList = new ArrayList<EmailVO>();
-		String query = "select * from user where name = ?;";
+		String query = "select * from user where id = ?;";
 		Object[] inputs = new Object[] { email };
 		itemList = jdbcTemplate.query(query, inputs, new EmailRowMapper());
 

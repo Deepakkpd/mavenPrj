@@ -11,7 +11,7 @@ import com.arrestu.util.CommonUtil;
 public class EmailRowMapper implements RowMapper<Object> {
 	public Object mapRow(ResultSet resultSet, int arg1) throws SQLException {
 		EmailVO helloVO = new EmailVO();
-		helloVO.setId(resultSet.getInt("id"));
+		helloVO.setId(resultSet.getString("id"));
 		if (!CommonUtil.isEmpty(resultSet.getString("emailId"))) {
 			helloVO.setEmailId(resultSet.getString("emailId").trim());
 		}
