@@ -1,13 +1,9 @@
 package com.aarestu.controller;
 
 
-import java.io.IOException;
-import java.sql.SQLDataException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.codehaus.jackson.JsonGenerationException;
-import org.codehaus.jackson.map.JsonMappingException;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +17,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.aarestu.form.HelloForm;
 import com.aarestu.manager.Manager;
 import com.aarestu.valueobject.CategoryPercentVO;
-import com.aarestu.valueobject.CategoryVO;
 import com.aarestu.valueobject.EmailVO;
 import com.aarestu.valueobject.Employee;
 import com.aarestu.valueobject.HelloVO;
@@ -29,6 +24,7 @@ import com.arrestu.util.CommonUtil;
 
 @Controller
 @SessionAttributes({"helloForm"})
+@RequestMapping(value = "/admin")
 public class ActualController {
 	private static org.slf4j.Logger logger  =  LoggerFactory.getLogger(ActualController.class);
 	

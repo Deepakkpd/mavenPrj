@@ -39,6 +39,8 @@ margin:0;
 							<li><a class="navbar-brand" href=${pageContext.request.contextPath}/search>Search</a></li>
 							<li><a class="navbar-brand" href=${pageContext.request.contextPath}/dash>Statistics</a></li> 
 							<li><a class="navbar-brand" href=${pageContext.request.contextPath}/team>Team</a></li>
+							<li><a class="navbar-brand"
+								href=${pageContext.request.contextPath}/logout.jsp>Logout</a></li>
 						</ul>
 					</div>
 				</div>

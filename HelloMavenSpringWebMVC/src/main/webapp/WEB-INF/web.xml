@@ -15,12 +15,31 @@
 	
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/webmvc-dispatcher-servlet.xml</param-value>
+		<param-value>
+		/WEB-INF/webmvc-dispatcher-servlet.xml
+		 /WEB-INF/spring-security.xml
+		</param-value>
 	</context-param>
 	
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	<!-- Spring Authentication using xml strt -->
+	 <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <listener>
+        <listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
+    </listener>
+    
+    <!-- Spring Authentication using xml end -->
 	
 	<error-page>
 	<exception-type>java.lang.Exception</exception-type> 

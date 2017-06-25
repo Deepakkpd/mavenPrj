@@ -128,9 +128,11 @@
 					<div class="row">
 						<a class="navbar-brand" href="#">DAILY EXPENSE TRACKER</a>
 						<ul class="nav navbar-nav navbar-right">
-							<li><a class="navbar-brand" href=${pageContext.request.contextPath}/search>Search</a></li>
-							<li><a class="navbar-brand" href=${pageContext.request.contextPath}/dash>Statistics</a></li> 
-							<li><a class="navbar-brand" href=${pageContext.request.contextPath}/team>Team</a></li>
+							<li><a class="navbar-brand" href=${pageContext.request.contextPath}/admin/search>Search</a></li>
+							<li><a class="navbar-brand" href=${pageContext.request.contextPath}/admin/dash>Statistics</a></li> 
+							<li><a class="navbar-brand" href=${pageContext.request.contextPath}/admin/team>Team</a></li>
+							<li><a class="navbar-brand"
+								href=${pageContext.request.contextPath}/logout.jsp>Logout</a></li>
 						</ul>
 					</div>
 				</div>
@@ -445,18 +447,18 @@ $('.nmbronly').bind('keyup blur',function(){
 
 		<script type="text/javascript" >
 			function sbmt() {
-				$("#helloForm").attr('action', '${pageContext.request.contextPath}/result');
+				$("#helloForm").attr('action', '${pageContext.request.contextPath}/admin/result');
 				$("#helloForm").submit();
 
 			}
 			function insert() {
 				alert("Checked Rows will be inserted");
-				$("#helloForm").attr('action', '${pageContext.request.contextPath}/itemDtlInsert');
+				$("#helloForm").attr('action', '${pageContext.request.contextPath}/admin/itemDtlInsert');
 				$("#helloForm").submit();
 
 			}
 			function mail() {
-				$("#helloForm").attr('action', '${pageContext.request.contextPath}/email');
+				$("#helloForm").attr('action', '${pageContext.request.contextPath}/admin/email');
 				$("#helloForm").submit();
 			}
 		</script>
