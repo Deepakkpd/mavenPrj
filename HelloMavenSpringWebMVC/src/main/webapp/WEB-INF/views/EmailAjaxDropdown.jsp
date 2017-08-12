@@ -43,6 +43,24 @@
  	}	
  
  </script>   
+<!--  <script>
+$(document).ready(function(){
+    $("selectedDropListID").onload(function(){
+    	$("#dealListID").hide();
+    });
+});
+</script> -->
+<script>
+function myFunction() {
+	var tmp = $("#selectedDropListID").val();
+    alert("Page is loaded tmp:"+tmp);
+    if(tmp == 'F10_FV1'){
+    $("#dealListID").hide();
+    }else{
+    	$("#dealListID").show();
+    }
+}
+</script>
  <style>
 .bg {
 	background:
@@ -57,8 +75,8 @@
 }
 </style>   
   </head>
-  <body class="bg" >
-<%-- <form:form commandName="helloForm2" name="helloForm2" method="post" id="helloForm2" action="/search">  --%> 
+  <body class="bg" onload="myFunction()">
+<form:form commandName="helloForm" name="helloForm" method="post" id="helloForm" action="/email">   
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container container-fluid">
 				<div class="navbar-header">
@@ -97,7 +115,25 @@
         <option value="select">--Select--</option>
     </select>
 </div>
+<p>
+<div>
+<h3 style="color: white; font-weight: bold; font-family: cursive;">At what level tier accum takes place? :</h3>
+<form:select id="selectedDropListID" path="selectedDropList">
+   <form:option value="NONE" label="--- Select ---"/>
+   <form:options items="${helloForm.dropList}" itemValue="id" itemLabel="emailId"/>
+</form:select>
+</div>
+<p>
 
+<%-- <c:if test="{helloForm.selectedDropList ne 'F10_FV1'}"> --%>
+<div id="dealListID">
+<h3 style="color: white; font-weight: bold; font-family: cursive;">Deal List:</h3>
+<form:select path="selectedTestList">
+   <form:option value="NONE" label="--- Select ---"/>
+   <form:options items="${helloForm.testList}" />
+</form:select>
+</div>
+<%-- </c:if> --%>
 <!-- <table><tbody style="width: 100%;">
 </tbody>
 </table> -->
@@ -107,7 +143,7 @@
     Foo ${row.name}<br/>
     Bar ${row.role}<br/>
 </c:forEach> --%>
-<%-- </form:form>  --%>
+</form:form>  
 </div>
   </body>
 </html>

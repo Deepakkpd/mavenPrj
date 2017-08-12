@@ -20,6 +20,7 @@ import com.aarestu.valueobject.CategoryPercentVO;
 import com.aarestu.valueobject.EmailVO;
 import com.aarestu.valueobject.Employee;
 import com.aarestu.valueobject.HelloVO;
+import com.aarestu.valueobject.UserVO;
 import com.arrestu.util.CommonUtil;
 
 @Controller
@@ -145,14 +146,37 @@ public class ActualController {
 	}
 	
 	@RequestMapping(value = "/emailSearch")//,method = RequestMethod.POST
-	public @ResponseBody List<EmailVO> emailAjax(@RequestParam("EMAIL") String email)  {
+	public @ResponseBody List<EmailVO> emailAjax(@RequestParam("EMAIL") String email,@ModelAttribute("helloForm") HelloForm helloForm)  {
 		logger.info("Entering /emailSearch");
+		logger.debug("helloForm.getSelectedDropList()::"+helloForm.getSelectedDropList());
+		helloForm.setSelectedDropList("F10_FV2");
+		logger.debug("AFTER helloForm.getSelectedDropList()::"+helloForm.getSelectedDropList());
 		return manager.fetchEmailID(email);
 	}
 	
 	@RequestMapping(value = "/email")//,method = RequestMethod.POST
 	public String email(@ModelAttribute("helloForm") HelloForm helloForm)  {
 		logger.info("Entering /email");
+		
+		List<EmailVO> lst = new ArrayList<EmailVO>();
+		EmailVO emailVO = new EmailVO();
+		emailVO.setId("F10_FV1");
+		emailVO.setEmailId("Deal");
+		lst.add(emailVO);
+		EmailVO emailVO1 = new EmailVO();
+		emailVO1.setId("F10_FV2");
+		emailVO1.setEmailId("Across Deal");
+		lst.add(emailVO1);
+		helloForm.setDropList(lst);
+		
+		helloForm.setSelectedDropList("F10_FV1");
+		
+		List<String> tmp = new ArrayList<String>();
+		tmp.add("choice 1");
+		tmp.add("choice 2");
+		tmp.add("choice 3");
+		helloForm.setTestList(tmp);
+		
 		return "EmailAjaxDropdown";
 	}
 }
