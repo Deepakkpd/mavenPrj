@@ -98,7 +98,7 @@ public class AarestuDataAccessor {
 
 	public int fetchUserListCount() {
 		String query = "select count(*) from userstable ;";
-		int count = jdbcTemplate.queryForInt(query);
+		int count = jdbcTemplate.queryForObject(query, Integer.class);
 		logger.info("count::"+count);
 		return count;
 	}
