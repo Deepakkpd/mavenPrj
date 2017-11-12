@@ -17,7 +17,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 		/WEB-INF/webmvc-dispatcher-servlet.xml
-		 <!-- /WEB-INF/spring-security.xml -->
+		 /WEB-INF/spring-security.xml
 		</param-value>
 	</context-param>
 	
@@ -25,7 +25,7 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	<!-- Spring Authentication using xml strt -->
-	<!--  <filter>
+	 <filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
     </filter>
@@ -37,7 +37,7 @@
     
     <listener>
         <listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
-    </listener> -->
+    </listener> 
     
     <!-- Spring Authentication using xml end -->
 	

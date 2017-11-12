@@ -50,17 +50,18 @@ public class CustomerRestController {
 		return new ResponseEntity(customer, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/employee", method = RequestMethod.POST/*, produces = "application/json", consumes = "application/json"*/)
+	@RequestMapping(value = "/employee", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes =  MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer) {
 System.out.println("inside POST");
 		 HttpHeaders headers = new HttpHeaders();
+		 System.out.println("customer::"+customer);
 		  if (customer == null) {
 		   return new ResponseEntity<Customer>(HttpStatus.BAD_REQUEST);
 		  }
 		  System.out.println("customer:"+customer);
 		  customerDAO.create(customer);
 		  headers.add("Employee Created  - ", String.valueOf(customer.getEmpId()));
-		  return new ResponseEntity<Customer>(customer, headers, HttpStatus.CREATED);
+		  return new ResponseEntity<Customer>(customer,headers, HttpStatus.CREATED);//<Customer>(customer, headers, HttpStatus.CREATED);
 	}
 	
 

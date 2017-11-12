@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+//@JsonIgnoreProperties(ignoreUnknown = true)
 public class Customer {
 
 	private Long empId;
@@ -15,16 +15,18 @@ public class Customer {
 	private String email;
 	private String mobile;
 
-	 @JsonCreator
-	public Customer(@JsonProperty("empId")long empId, @JsonProperty("firstName")String firstName, @JsonProperty("lastName")String lastName, @JsonProperty("email")String email, @JsonProperty("mobile")String mobile) {
-		this.empId = empId;
+	public Customer() {
+	}
+	
+	// @JsonCreator
+	//public Customer(@JsonProperty("empId")long empId, @JsonProperty("firstName")String firstName, @JsonProperty("lastName")String lastName, @JsonProperty("email")String email, @JsonProperty("mobile")String mobile) {
+	 public Customer(long empId, String firstName, String lastName, String email, String mobile) {
+		 super();
+		 this.empId = empId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.mobile = mobile;
-	}
-
-	public Customer() {
 	}
 
 	public Long getEmpId() {
@@ -73,7 +75,6 @@ public class Customer {
 				+ ", lastName=" + lastName + ", email=" + email + ", mobile="
 				+ mobile + "]";
 	}
-
 
 
 
